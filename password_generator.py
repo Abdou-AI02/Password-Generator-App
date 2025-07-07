@@ -7,6 +7,7 @@ import secrets
 import random
 import json
 import os
+import webbrowser
 
 class ToolTip:
     def __init__(self, widget, text_callback, theme_manager):
@@ -28,8 +29,8 @@ class ToolTip:
         self.tooltip_window.wm_geometry(f"+{x}+{y}")
         
         theme_colors = self.theme_manager.get_current_theme_colors()
-        bg_color = theme_colors.get('TOOLTIP_BG', '#3a3f4b')
-        fg_color = theme_colors.get('TOOLTIP_FG', '#abb2bf')
+        bg_color = theme_colors.get('TOOLTIP_BG')
+        fg_color = theme_colors.get('TOOLTIP_FG')
 
         label = tk.Label(self.tooltip_window, text=text, justify='left',
                          background=bg_color, foreground=fg_color, relief='solid', borderwidth=1,
@@ -63,7 +64,8 @@ class PasswordGeneratorApp:
             'clear_confirm_message': "هل أنت متأكد أنك تريد مسح سجل كلمات المرور بشكل نهائي؟",
             'generate_button': "توليد كلمة مرور جديدة", 'generate_tooltip': "إنشاء كلمة مرور جديدة",
             'select_char_type': "اختر نوع أحرف واحد على الأقل", 'lang_button': "English",
-            'theme_tooltip': "تبديل الوضع"
+            'theme_tooltip': "تبديل الوضع",
+            'created_by': "انشا من طرف abdou"
         },
         'en': {
             'window_title': "Professional Password Generator", 'header': "Password Generator",
@@ -77,18 +79,19 @@ class PasswordGeneratorApp:
             'clear_confirm_message': "Are you sure you want to permanently delete the password history?",
             'generate_button': "Generate New Password", 'generate_tooltip': "Create a new password",
             'select_char_type': "Select at least one character type", 'lang_button': "العربية",
-            'theme_tooltip': "Toggle Theme"
+            'theme_tooltip': "Toggle Theme",
+            'created_by': "Created by abdou"
         }
     }
     
     THEMES = {
         'dark': {
-            'BG': "#1e1e1e", 'FRAME': "#252526", 'TEXT': "#cccccc", 'ACCENT': "#c586c0", 'ACCENT_ACTIVE': "#b570b0",
-            'BORDER': "#3c3c3c", 'FLASH': "#3c3c3c", 'TOOLTIP_BG': '#3a3f4b', 'TOOLTIP_FG': '#abb2bf'
+            'BG': "#2d3436", 'FRAME': "#353b48", 'TEXT': "#dfe6e9", 'ACCENT': "#00cec9", 'ACCENT_ACTIVE': "#00b894",
+            'BORDER': "#636e72", 'FLASH': "#636e72", 'TOOLTIP_BG': '#353b48', 'TOOLTIP_FG': '#dfe6e9'
         },
         'light': {
-            'BG': "#f5f5f5", 'FRAME': "#ffffff", 'TEXT': "#212121", 'ACCENT': "#007acc", 'ACCENT_ACTIVE': "#005f9e",
-            'BORDER': "#dcdcdc", 'FLASH': "#e0e0e0", 'TOOLTIP_BG': '#ffffff', 'TOOLTIP_FG': '#212121'
+            'BG': "#f7f9fb", 'FRAME': "#ffffff", 'TEXT': "#2c3e50", 'ACCENT': "#3498db", 'ACCENT_ACTIVE': "#2980b9",
+            'BORDER': "#e0e6ed", 'FLASH': "#e0e6ed", 'TOOLTIP_BG': '#2c3e50', 'TOOLTIP_FG': '#ffffff'
         }
     }
 
@@ -138,22 +141,18 @@ class PasswordGeneratorApp:
         self.style = ttk.Style(self.root)
         self.style.theme_use('clam')
         self.FONT_FAMILY = "Segoe UI"
-        # FIX: Set initial theme color to avoid AttributeError before apply_theme is called
-        colors = self.get_current_theme_colors()
-        self.BG_COLOR = colors['BG']
         
     def apply_theme(self):
         colors = self.get_current_theme_colors()
-        self.BG_COLOR = colors['BG'] # Update instance attribute
         BG, FRAME, TEXT, ACCENT, ACCENT_ACTIVE, BORDER, FLASH = colors['BG'], colors['FRAME'], colors['TEXT'], colors['ACCENT'], colors['ACCENT_ACTIVE'], colors['BORDER'], colors['FLASH']
         self.root.configure(bg=BG)
         self.style.configure('.', background=BG, foreground=TEXT, font=(self.FONT_FAMILY, 11), borderwidth=0)
         self.style.configure('TFrame', background=BG)
         self.style.configure('Card.TFrame', background=FRAME, relief='solid', borderwidth=1, bordercolor=BORDER)
-        self.style.configure('Header.TLabel', font=(self.FONT_FAMILY, 18, 'bold'), background=BG)
+        self.style.configure('Header.TLabel', font=(self.FONT_FAMILY, 20, 'bold'), background=BG, foreground=ACCENT)
         self.style.configure('Sub.TLabel', background=FRAME, font=(self.FONT_FAMILY, 12, 'bold'))
-        self.style.configure('Result.TEntry', fieldbackground=BG, foreground=ACCENT, borderwidth=0, font=('Consolas', 16))
-        self.style.configure('Flash.Result.TEntry', fieldbackground=FLASH, foreground=ACCENT, borderwidth=0, font=('Consolas', 16))
+        self.style.configure('Result.TEntry', fieldbackground=BG, foreground=TEXT, borderwidth=0, font=('Consolas', 16))
+        self.style.configure('Flash.Result.TEntry', fieldbackground=FLASH, foreground=TEXT, borderwidth=0, font=('Consolas', 16))
         self.style.configure('Action.TButton', background=FRAME, foreground=TEXT, font=(self.FONT_FAMILY, 16))
         self.style.map('Action.TButton', background=[('active', BG)])
         self.style.configure('Generate.TButton', font=(self.FONT_FAMILY, 14, 'bold'), background=ACCENT, foreground="#ffffff", padding=15)
@@ -169,38 +168,36 @@ class PasswordGeneratorApp:
         self.style.configure('TSeparator', background=BORDER)
         self.style.configure("Vertical.TScrollbar", troughcolor=BG, bordercolor=BG, background=FRAME, arrowcolor=TEXT)
         self.style.map("Vertical.TScrollbar", background=[('active', ACCENT_ACTIVE)])
+        self.style.configure('Credit.TLabel', font=(self.FONT_FAMILY, 9, 'underline'), foreground=ACCENT, background=BG)
         
         self.theme_button.config(text=self.THEME_LIGHT_ICON if self.current_theme == 'dark' else self.THEME_DARK_ICON)
         if hasattr(self, 'history_canvas'): self.history_canvas.config(bg=FRAME)
         if hasattr(self, 'history_header'): self.history_header.configure(background=BG)
 
     def create_widgets(self):
-        # Main container
-        self.main_frame = ttk.Frame(self.root, padding="25"); self.main_frame.pack(expand=True, fill='both')
+        self.main_frame = ttk.Frame(self.root, padding="30"); self.main_frame.pack(expand=True, fill='both')
         
-        # Bottom frame for the generate button (fixed at the bottom)
-        bottom_frame = ttk.Frame(self.main_frame); bottom_frame.pack(side='bottom', fill='x', pady=(15, 0))
+        bottom_frame = ttk.Frame(self.main_frame); bottom_frame.pack(side='bottom', fill='x', pady=(20, 0))
         self.generate_button = ttk.Button(bottom_frame, command=self.generate_password, style='Generate.TButton'); self.generate_button.pack(fill='x')
         self.generate_tooltip = ToolTip(self.generate_button, lambda: self.I18N[self.current_lang]['generate_tooltip'], self)
+        self.credit_label = ttk.Label(bottom_frame, style='Credit.TLabel', cursor="hand2")
+        self.credit_label.pack(pady=(10, 0))
+        self.credit_label.bind("<Button-1>", self.open_credit_link)
 
-        # Content frame for everything else
         content_frame = ttk.Frame(self.main_frame); content_frame.pack(fill='both', expand=True)
 
-        # Header
-        top_header_frame = ttk.Frame(content_frame); top_header_frame.pack(fill='x', pady=(0, 15))
+        top_header_frame = ttk.Frame(content_frame); top_header_frame.pack(fill='x', pady=(0, 20))
         self.lang_button = ttk.Button(top_header_frame, command=self.toggle_language, style='Lang.TButton')
         self.theme_button = ttk.Button(top_header_frame, command=self.toggle_theme, style='Lang.TButton')
         self.header_label = ttk.Label(top_header_frame, style='Header.TLabel', anchor='center')
         ToolTip(self.theme_button, lambda: self.I18N[self.current_lang]['theme_tooltip'], self)
         
-        # Result
-        self.result_frame = ttk.Frame(content_frame, style='Card.TFrame', padding=8); self.result_frame.pack(fill='x', pady=10)
+        self.result_frame = ttk.Frame(content_frame, style='Card.TFrame', padding=10); self.result_frame.pack(fill='x', pady=10)
         self.password_var = tk.StringVar()
         self.password_entry = ttk.Entry(self.result_frame, textvariable=self.password_var, style='Result.TEntry', state='readonly', justify='center')
         self.copy_button = ttk.Button(self.result_frame, text=self.COPY_ICON, style='Action.TButton', command=self.copy_to_clipboard, width=3)
         self.copy_tooltip = ToolTip(self.copy_button, lambda: self.I18N[self.current_lang]['copy_tooltip'], self)
         
-        # Options
         self.options_container = ttk.Frame(content_frame, padding="20", style='Card.TFrame'); self.options_container.pack(fill='x', pady=10)
         self.length_frame = ttk.Frame(self.options_container, style='Card.TFrame'); self.length_frame.pack(fill='x', pady=(0, 5))
         self.length_title_label = ttk.Label(self.length_frame, style='Sub.TLabel')
@@ -213,14 +210,12 @@ class PasswordGeneratorApp:
         self.chk_digits = ttk.Checkbutton(self.options_container, style='Options.TCheckbutton', variable=self.include_digits, command=self.on_option_change)
         self.chk_symbols = ttk.Checkbutton(self.options_container, style='Options.TCheckbutton', variable=self.include_symbols, command=self.on_option_change)
         
-        # Strength
         self.strength_label = ttk.Label(content_frame, font=(self.FONT_FAMILY, 10), anchor='center'); self.strength_label.pack(fill='x', pady=(15, 5))
         self.strength_canvas = tk.Canvas(content_frame, height=6, highlightthickness=0, relief='flat'); self.strength_canvas.pack(fill='x', pady=(0, 10))
         
-        # History
-        ttk.Separator(content_frame, orient='horizontal').pack(fill='x', pady=10)
+        ttk.Separator(content_frame, orient='horizontal').pack(fill='x', pady=15)
         history_header_frame = ttk.Frame(content_frame); history_header_frame.pack(fill='x', pady=(5, 5))
-        self.history_header = ttk.Label(history_header_frame, style='Sub.TLabel', background=self.BG_COLOR)
+        self.history_header = ttk.Label(history_header_frame, style='Sub.TLabel')
         self.clear_history_button = ttk.Button(history_header_frame, text=self.CLEAR_ICON, style='HistoryCopy.TButton', command=self.clear_history)
         self.clear_history_tooltip = ToolTip(self.clear_history_button, lambda: self.I18N[self.current_lang]['clear_history_tooltip'], self)
         history_container = ttk.Frame(content_frame, style='Card.TFrame'); history_container.pack(fill='both', expand=True, pady=(0, 0))
@@ -232,6 +227,9 @@ class PasswordGeneratorApp:
         self.history_canvas.configure(yscrollcommand=scrollbar.set)
         self.history_canvas.pack(side="left", fill="both", expand=True, padx=5, pady=5)
         scrollbar.pack(side="right", fill="y")
+
+    def open_credit_link(self, event):
+        webbrowser.open_new_tab("https://heylink.me/abdou_edit/")
 
     def toggle_language(self): self.current_lang = 'en' if self.current_lang == 'ar' else 'ar'; self.update_ui_language()
     def toggle_theme(self): self.current_theme = 'light' if self.current_theme == 'dark' else 'dark'; self.apply_theme(); self.update_ui_language()
@@ -248,8 +246,9 @@ class PasswordGeneratorApp:
         self.chk_lower.config(text=lang['lower_label'])
         self.chk_digits.config(text=lang['digits_label'])
         self.chk_symbols.config(text=lang['symbols_label'])
-        self.history_header.config(text=f"{self.HISTORY_ICON} {lang['history_header']}")
+        self.history_header.config(text=f"{self.HISTORY_ICON} {lang['history_header']}", background=colors['BG'])
         self.generate_button.config(text=f"{lang['generate_button']} {self.GENERATE_ICON}")
+        self.credit_label.config(text=lang['created_by'])
         self.update_strength_indicator(self.length_var.get(), self.get_types_score())
         self.update_history_display()
         is_rtl = self.current_lang == 'ar'
@@ -323,8 +322,8 @@ class PasswordGeneratorApp:
         self.strength_canvas.delete("all")
         score = types_score + (2 if length >= 16 else 1 if length >= 12 else 0)
         lang = self.I18N[self.current_lang]
-        colors = self.THEMES[self.current_theme]
-        strength_colors = {"weak": "#e06c75", "medium": "#d19a66", "strong": "#98c379", "vstrong": colors['ACCENT']}
+        colors = self.get_current_theme_colors()
+        strength_colors = {"weak": "#e74c3c", "medium": "#f1c40f", "strong": "#2ecc71", "vstrong": colors['ACCENT']}
         text, color, width_pct = lang['strength_weak'], strength_colors["weak"], 0.25
         if score >= 5: text, color, width_pct = lang['strength_vstrong'], strength_colors["vstrong"], 1.0
         elif score >= 4: text, color, width_pct = lang['strength_strong'], strength_colors["strong"], 0.75

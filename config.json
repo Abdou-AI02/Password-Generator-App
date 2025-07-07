@@ -1,0 +1,10 @@
+{
+    "language": "en",
+    "theme": "dark",
+    "length": 18,
+    "upper": true,
+    "lower": true,
+    "digits": true,
+    "symbols": true,
+    "history": []
+}
