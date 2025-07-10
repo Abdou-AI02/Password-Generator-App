@@ -1,11 +1,18 @@
-Professional Password Generator | مولد كلمات السر الاحترافي
+Professional Password Generator
+<p align="center">
+<!-- Badges -->
+<img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
+<img src="https://img.shields.io/badge/python-3.x-blue.svg" alt="Python 3.x">
+<img src="https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey.svg" alt="Platform: windows | macos | linux">
+</p>
 
+<p align="center">
+<img src="https://i.imgur.com/g8e1a6j.png" alt="Password Generator Screenshot" width="480">
+</p>
 
 A secure, professional, and multi-lingual password generator built with Python and Tkinter. It offers a modern user interface with light and dark modes, password history, and customizable generation options.
 
-مولد كلمات مرور آمن، احترافي، ومتعدد اللغات تم إنشاؤه باستخدام بايثون ومكتبة Tkinter. يوفر واجهة مستخدم عصرية مع وضع ليلي ونهاري، سجل لكلمات المرور، وخيارات توليد قابلة للتخصيص.
-
-🌟 My Journey | رحلتي مع هذا المشروع
+🌟 My Journey
 This project is more than just code; it's my first real application, born from over a month of dedicated learning and late-night coding sessions. The journey started with a simple idea: "I need a password generator that's actually good and easy to use." What followed was a deep dive into the world of Python and GUI development.
 
 A core principle from the start was security and privacy. I wanted to build a tool that people could trust completely. That's why the application is fully offline, requires no special permissions, and doesn't collect a single piece of your data. Your passwords are yours and yours alone.
@@ -16,7 +23,97 @@ Implementing features like the dark/light modes and the bilingual interface with
 
 If you're a beginner just starting your programming journey, I hope this project inspires you. It's proof that with dedication and a passion for learning, you can build something you're proud of.
 
-بالدارجة الجزائرية
+✨ Key Features
+🔐 Secure & Private: Operates 100% offline. No data collection, no internet connection required.
+
+🌍 Bilingual Interface: Seamlessly switch between Arabic and English with full RTL/LTR support.
+
+🎨 Dual Themes: A beautiful and modern UI with both a sleek dark mode and a clean light mode.
+
+🔧 Highly Customizable: Adjust password length and choose from four character types (uppercase, lowercase, numbers, symbols).
+
+📊 Strength Indicator: Get instant visual feedback on your password's strength.
+
+🕒 Password History: Keep track of your last 10 generated passwords, with an option to clear the history.
+
+💾 Settings Persistence: The app remembers your preferred language, theme, and settings for the next time you open it.
+
+💻 Cross-Platform: Fully compatible with Windows, macOS, and Linux.
+
+🚀 Installation & Usage
+To run this application, you need to have Python 3 installed on your system.
+
+Clone the repository:
+
+git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+cd YOUR_REPOSITORY_NAME
+
+Run the application:
+
+python password_generator.py
+
+To create a standalone executable
+You can create a standalone executable file using pyinstaller.
+
+Install pyinstaller:
+
+pip install pyinstaller
+
+Create the executable:
+(Make sure you have an icon.ico file in the same directory for the application icon)
+
+pyinstaller --onefile --windowed --icon="icon.ico" password_generator.py
+
+The executable will be located in the dist folder.
+
+🖼️ Screenshots
+Dark Mode
+
+Light Mode
+
+
+
+
+
+Arabic Interface
+
+Arabic Interface
+
+
+
+
+
+English Interface
+
+English Interface
+
+🤝 Contributing
+Contributions, issues, and feature requests are welcome! Feel free to check the issues page.
+
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+<br>
+<hr>
+<br>
+
+<div dir="rtl">
+
+مولد كلمات السر الاحترافي
+<p align="center">
+<!-- Badges -->
+<img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="رخصة: MIT">
+<img src="https://img.shields.io/badge/python-3.x-blue.svg" alt="بايثون 3.x">
+<img src="https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey.svg" alt="الأنظمة: ويندوز | ماك | لينكس">
+</p>
+
+<p align="center">
+<img src="https://i.imgur.com/g8e1a6j.png" alt="لقطة شاشة لمولد كلمات السر" width="480">
+</p>
+
+مولد كلمات مرور آمن، احترافي، ومتعدد اللغات تم إنشاؤه باستخدام بايثون ومكتبة Tkinter. يوفر واجهة مستخدم عصرية مع وضع ليلي ونهاري، سجل لكلمات المرور، وخيارات توليد قابلة للتخصيص.
+
+🌟 رحلتي مع هذا المشروع
 هذا المشروع ماشي مجرد كود، هذا هو أول تطبيق حقيقي ليا، جا بعد كثر من شهر تاع قراية وسهرات تاع الليل مع الكود. الحكاية بدات بفكرة بسيطة: "لازمني مولد كلمات سر يكون شباب وساهل في الخدمة". واش جا موراها كان غوص عميق في عالم البايثون وتطوير الواجهات الرسومية.
 
 من الأول، كان المبدأ الأساسي هو الأمان والخصوصية. كنت حاب نصنع أداة الناس تقدر تثق فيها ثقة عمياء. على بيها التطبيق يخدم كامل بلا أنترنت، ما يطلب حتى صلاحيات خاصة، وما يدي حتى معلومة من عندك. كلمات السر تاعك تبقى ليك وحدك.
@@ -27,86 +124,74 @@ If you're a beginner just starting your programming journey, I hope this project
 
 إذا كنت مطور مبتدئ يالله بديت الطريق تاعك، نتمنى هذا المشروع يلهمك. هو دليل بلي بالإصرار وحب التعلم، تقدر تبني حاجة تكون فخور بيها.
 
-✨ Features | المميزات
-Secure & Private: All password generation happens locally on your device. The application does not require an internet connection and does not collect, store, or transmit any personal data.
+✨ المميزات الأساسية
+🔐 آمن وخاص: كل عمليات التوليد تتم 100% محلياً على جهازك. التطبيق لا يحتاج إلى اتصال بالإنترنت ولا يجمع أي بيانات.
 
-آمن وخاص: كل عمليات توليد كلمات المرور تتم محلياً على جهازك. التطبيق لا يحتاج إلى اتصال بالإنترنت ولا يقوم بجمع أو تخزين أو إرسال أي بيانات شخصية.
+🌍 واجهة ثنائية اللغة: تبديل سلس بين اللغتين العربية والإنجليزية مع دعم كامل لاتجاه الواجهة من اليمين لليسار.
 
-Bilingual Interface (Arabic/English): Fully supports both languages with right-to-left (RTL) and left-to-right (LTR) layout adjustments.
+🎨 تصميم مزدوج: واجهة عصرية جميلة مع وضع ليلي أنيق ووضع نهاري مشرق.
 
-واجهة ثنائية اللغة (عربي/إنجليزي): دعم كامل للغتين مع تكييف اتجاه الواجهة (من اليمين لليسار ومن اليسار لليمين).
+🔧 قابلية تخصيص عالية: تحكم في طول كلمة المرور واختر من بين أربعة أنواع من الأحرف (كبيرة، صغيرة، أرقام، رموز).
 
-Light & Dark Modes: Switch between two professional themes for the best user experience.
+📊 مؤشر قوة: احصل على تقييم بصري فوري لمدى قوة كلمة المرور التي تم إنشاؤها.
 
-وضع ليلي ونهاري: تبديل سهل بين تصميمين احترافيين لتجربة استخدام أفضل.
+🕒 سجل كلمات المرور: احتفظ بآخر 10 كلمات مرور قمت بإنشائها، مع إمكانية مسح السجل.
 
-Customizable Password Generation:
+💾 حفظ الإعدادات: التطبيق يتذكر لغتك، تصميمك، وإعداداتك المفضلة تلقائيًا.
 
-توليد كلمات مرور قابلة للتخصيص:
+💻 متوافق مع عدة أنظمة: يعمل بشكل كامل على أنظمة ويندوز، ماك، ولينكس.
 
-Adjustable Length: Choose password length from 8 to 32 characters using a slider.
-
-طول قابل للتعديل: اختر طول كلمة المرور من 8 إلى 32 حرفًا باستخدام شريط تمرير.
-
-Character Types: Include/exclude uppercase, lowercase, numbers, and symbols.
-
-أنواع الأحرف: إدراج أو استبعاد الأحرف الكبيرة، الصغيرة، الأرقام، والرموز.
-
-Password Strength Indicator: Visual feedback on the strength of the generated password.
-
-مؤشر قوة كلمة المرور: مؤشر بصري يوضح مدى قوة كلمة المرور التي تم إنشاؤها.
-
-Password History: Keeps a history of the last 10 generated passwords with an option to clear it.
-
-سجل كلمات المرور: يحتفظ بآخر 10 كلمات مرور تم إنشاؤها مع إمكانية مسح السجل.
-
-Settings Persistence: The app saves your language, theme, and generation options automatically.
-
-حفظ الإعدادات: التطبيق يحفظ اللغة، الوضع، وخيارات التوليد تلقائياً عند الخروج.
-
-Cross-Platform: Built with Python's standard library, making it compatible with Windows, macOS, and Linux.
-
-متوافق مع عدة أنظمة: تم بناؤه بمكتبات بايثون القياسية، مما يجعله متوافقاً مع ويندوز، ماك، ولينكس.
-
-🚀 Installation & Usage | التثبيت والاستخدام
-To run this application, you need to have Python 3 installed on your system.
-
+🚀 التثبيت والاستخدام
 لتشغيل هذا التطبيق، يجب أن يكون لديك بايثون 3 مثبتًا على جهازك.
 
-Clone the repository | استنسخ المستودع:
+استنسخ المستودع:
 
 git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
 cd YOUR_REPOSITORY_NAME
 
-Run the application | شغل التطبيق:
+شغل التطبيق:
 
 python password_generator.py
 
-To create a standalone executable | لإنشاء ملف تنفيذي مستقل
-You can create a standalone executable file using pyinstaller.
-
+لإنشاء ملف تنفيذي مستقل
 يمكنك إنشاء ملف تنفيذي مستقل باستخدام pyinstaller.
 
-Install pyinstaller | تثبيت pyinstaller:
+تثبيت pyinstaller:
 
 pip install pyinstaller
 
-Create the executable | إنشاء الملف التنفيذي:
-(Make sure you have an icon.ico file in the same directory for the application icon)
+إنشاء الملف التنفيذي:
 (تأكد من وجود ملف icon.ico في نفس المجلد لاستخدامه كأيقونة للتطبيق)
 
 pyinstaller --onefile --windowed --icon="icon.ico" password_generator.py
 
-The executable will be located in the dist folder.
-
 سيكون الملف التنفيذي موجودًا في مجلد dist.
 
-## 🖼️ Screenshots | لقطات شاشة
+🖼️ لقطات شاشة
+الوضع الليلي
 
-| الوضع الليلي (Dark Mode) | الوضع النهاري (Light Mode) |
-| :---: | :---: |
-| ![Dark Mode Arabic](screenshots/dark_mode_ar.png) | ![Light Mode Arabic](screenshots/light_mode_ar.png) |
-| *الواجهة العربية* | *الواجهة العربية* |
-| ![Dark Mode English](screenshots/dark_mode_en.png) | ![Light Mode English](screenshots/light_mode_en.png) |
-| *English Interface* | *English Interface* |
+الوضع النهاري
 
+
+
+
+
+الواجهة العربية
+
+الواجهة العربية
+
+
+
+
+
+English Interface
+
+English Interface
+
+🤝 المساهمة
+المساهمات، الإبلاغ عن المشاكل، وطلبات الميزات الجديدة هي موضع ترحيب! لا تتردد في زيارة صفحة المشاكل.
+
+📄 الرخصة
+هذا المشروع مرخص تحت رخصة MIT - انظر ملف LICENSE لمزيد من التفاصيل.
+
+</div>
