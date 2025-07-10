@@ -7,7 +7,7 @@ Professional Password Generator
 </p>
 
 <p align="center">
-<img src="https://i.imgur.com/g8e1a6j.png" alt="Password Generator Screenshot" width="480">
+ alt="Password Generator Screenshot" width="480">
 </p>
 
 A secure, professional, and multi-lingual password generator built with Python and Tkinter. It offers a modern user interface with light and dark modes, password history, and customizable generation options.
