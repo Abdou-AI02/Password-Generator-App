@@ -6,10 +6,6 @@ Professional Password Generator
 <img src="https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey.svg" alt="Platform: windows | macos | linux">
 </p>
 
-<p align="center">
- <alt="Password Generator Screenshot" width="480">
-</p>
-
 A secure, professional, and multi-lingual password generator built with Python and Tkinter. It offers a modern user interface with light and dark modes, password history, and customizable generation options.
 
 🌟 My Journey
@@ -45,8 +41,8 @@ To run this application, you need to have Python 3 installed on your system.
 
 Clone the repository:
 
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
-cd YOUR_REPOSITORY_NAME
+git clone https://github.com/Abdou-AI02/Password-Generator-App.git
+cd Password-Generator-App
 
 Run the application:
 
@@ -107,10 +103,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 <img src="https://img.shields.io/badge/platform-windows%20%7C%20macos%20%7C%20linux-lightgrey.svg" alt="الأنظمة: ويندوز | ماك | لينكس">
 </p>
 
-<p align="center">
-< alt="لقطة شاشة لمولد كلمات السر" width="480">
-</p>
-
 مولد كلمات مرور آمن، احترافي، ومتعدد اللغات تم إنشاؤه باستخدام بايثون ومكتبة Tkinter. يوفر واجهة مستخدم عصرية مع وضع ليلي ونهاري، سجل لكلمات المرور، وخيارات توليد قابلة للتخصيص.
 
 🌟 رحلتي مع هذا المشروع
@@ -146,8 +138,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 استنسخ المستودع:
 
-git clone https:(https://github.com/Abdou-AI02/Password-Generator-App)
-cd YOUR_REPOSITORY_NAME
+git clone https://github.com/Abdou-AI02/Password-Generator-App.git
+cd Password-Generator-App
 
 شغل التطبيق:
 
