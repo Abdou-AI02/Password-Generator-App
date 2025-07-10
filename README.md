@@ -108,7 +108,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 </p>
 
 <p align="center">
-<img src="https://i.imgur.com/g8e1a6j.png" alt="لقطة شاشة لمولد كلمات السر" width="480">
+< alt="لقطة شاشة لمولد كلمات السر" width="480">
 </p>
 
 مولد كلمات مرور آمن، احترافي، ومتعدد اللغات تم إنشاؤه باستخدام بايثون ومكتبة Tkinter. يوفر واجهة مستخدم عصرية مع وضع ليلي ونهاري، سجل لكلمات المرور، وخيارات توليد قابلة للتخصيص.
@@ -146,7 +146,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 استنسخ المستودع:
 
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY_NAME.git
+git clone https:(https://github.com/Abdou-AI02/Password-Generator-App)
 cd YOUR_REPOSITORY_NAME
 
 شغل التطبيق:
